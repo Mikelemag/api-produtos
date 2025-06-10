@@ -5,8 +5,7 @@ const produtos = require('./produtos')
 
 sequelize.sync({ alter: true })
     .then(() => console.log("Tabelas sincronizadas com secesso"))
-    .catch((error) => console.error(
-        'Erro ao sincronizar tabelas', error))
+    .catch((error) => console.error('Erro ao sincronizar tabelas', error))
 
 module.exports = {
     Users,

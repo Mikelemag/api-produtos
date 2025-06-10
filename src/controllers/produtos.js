@@ -1,12 +1,12 @@
-const { Produtos } = require('../models')
+const { produtos } = require('../models')
 
 async function getProdutos(req, res) {
         try {
 
             
-            const produtos = await Produto.findAll();
+            const Produtos = await produtos.findAll();
             
-            return res.send(produtos)
+            return res.send(Produtos)
         } catch (error) {
             console.error(error)
             return res.status(500).send('Erro ao cadastrar produto')
@@ -17,7 +17,7 @@ async function createProduto(req, res) {
     try {
         const {nome, catergoria, preco, image_url } = req.body;
         
-        const produto = await Produtos.create(req.body)
+        const produto = await produtos.create(req.body)
 
         return res.status(201).send(produto)
     } catch (error) {
@@ -29,7 +29,7 @@ async function createProduto(req, res) {
  async function deleteProduto(req, res){
     const { id } = req.params;
     try {
-        await Produtos.destroy({
+        await produtos.destroy({
             where: {
                 id: id
             }
